@@ -1,84 +1,60 @@
-# FSD 2 Repository
+# Full Stack Development 2
 
-This repository contains the coursework projects completed for Full Stack Development 2. The work is organized by experiment folders so each app stays easy to review, run, and update.
+This repository contains coursework experiments for Full Stack Development 2. Each experiment is kept in its own folder so its frontend, backend, and supporting files remain organized.
 
-## Overview
+## Experiments
 
-This repository contains the coursework projects completed for Full Stack Development 2. It is intended to showcase different frontend and authentication concepts using React, Vite, Redux Toolkit, and React Router.
+| Folder | Project |
+| --- | --- |
+| `exp 1.1` | React post composer |
+| `exp 1.2` | Posts workspace using React, Vite, and Redux Toolkit |
+| `exp 1.3` | Role-based authentication with protected routes |
+| `exp 1.4` | Calendar and event management app |
+| `exp 1.5` | Post management system with React and Spring Boot |
+| `exp 1.6` | Student task manager with frontend and backend |
+| `exp 1.7` | Full-stack application with a Spring Boot backend and React/Vite frontend |
+| `exp 1.8` | Full-stack experiment with frontend, backend, and Docker Compose |
+| `exp 1.9` | CI/CD pipeline demo with automated tests, Docker, and canary deployment |
 
-The repository currently includes:
+## Run Experiment 1.9
 
-- Experiment 1.1: a React-based post composer application
-- Experiment 1.2: a Redux Toolkit-powered posts workspace UI
-- Experiment 1.3: a role-based authentication web project
-- Experiment 1.4: a calendar/event management app built with React and Vite
-- Experiment 1.5: a post management application
-- Experiment 1.6: a student task manager with a Spring Boot backend and React frontend
+### Frontend
 
-## Project Structure
+Requires Node.js and npm.
 
-- exp 1.1/ - First experiment project
-- exp 1.2/ - Vite + React frontend with Redux Toolkit
-- exp 1.3/ - Authentication project with protected routes and role-based access
-- exp 1.4/ - Calendar app with event handling and UI components
-- exp 1.5/ - Post management application
-- exp 1.6/ - Student task manager with pagination, caching, and query optimization
+```bash
+cd "exp 1.9/frontend"
+npm install
+npm run dev
+```
 
-## Getting Started
+Open the local address printed by Vite.
 
-### Run Experiment 1.2
+### Backend containers
 
-1. Open the project folder:
-   ```bash
-   cd "exp 1.2"
-   ```
-2. Install dependencies:
-   ```bash
-   npm install
-   ```
-3. Start the development server:
-   ```bash
-   npm run dev
-   ```
-4. Open the local URL shown by Vite in your browser.
+Requires Docker with the Compose plugin.
 
-### Run Experiment 1.3
+```bash
+cd "exp 1.9"
+docker compose up --build
+```
 
-1. Open the project folder:
-   ```bash
-   cd "exp 1.3/RBAC_Authentication_Web_Project"
-   ```
-2. Install dependencies:
-   ```bash
-   npm install
-   ```
-3. Start the development server:
-   ```bash
-   npm run dev
-   ```
+The primary backend is published on port `8080`; the canary backend is published on port `8082`. Stop the containers with `Ctrl+C`, or run `docker compose down` from the same directory.
 
-## Available Scripts
+### Backend tests
 
-Inside the project folders, you can use:
+Requires Java 17. On Windows, use `mvnw.cmd`; on macOS/Linux, use `./mvnw`.
 
-- `npm run dev` - start the development server
-- `npm run build` - build the project for production
-- `npm run preview` - preview the production build
+```powershell
+cd "exp 1.9/backend"
+mvnw.cmd test
+```
 
-## Technologies Used
+```bash
+cd "exp 1.9/backend"
+./mvnw test
+```
 
-- React
-- Vite
-- Redux Toolkit
-- JavaScript / JSX
-- React Router
+## Technologies
 
-## Notes
-
-Each experiment is stored in its own folder so the projects remain organized and easy to manage.
-
-## Repository Purpose
-
-Use this repository as a reference for building React-based applications, managing state with Redux Toolkit, and implementing protected routes and role-based access in modern web projects.
-
-This repository is also published on GitHub for easy sharing and review.
+The experiments use a mix of React, Vite, Redux Toolkit, React Router, JavaScript, Java, Spring Boot, Maven, and Docker Compose. Check an experiment's own folder for its dependencies and setup details.
